@@ -197,8 +197,6 @@ function deposit(num) {
         return "ей";
     } else if (ending == 2 || ending == 3 || ending == 4) { // 2, 3, 4 или заканчивается на 2, 3, 4
         return "я";
-    } else if (ending == 1 && num.length > 2) { // если в числе больше двух цифр
-        return "ей";
     } else { // число - 1
         return "ь";
     }
