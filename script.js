@@ -185,27 +185,23 @@ alert(mathOperation(a, b, c));
  * @returns возвращает окончание
  */
 function deposit(num) {
-    if (num >= 11 && num <= 19) {
-        return "ей";
-    }
-
     num = String(num) // перевожу пользовательский ввод в строку
     let ending = +(num.charAt(num.length - 1)); // определяю последнюю цифру в числе
-    let endingMinusOne = +(num.charAt(num.length - 2)); // определяю предпоследнюю цифру на случай, когда в числе последние две цифры - 1
-    if (ending == 0 || ending == 5 || ending == 6 || ending == 7 || ending == 8 || ending == 9 || ending == 1 && endingMinusOne == 1) {
-        // 0, 5, 6, 7, 8, 9 или заканчивается на эти цифры и если 1 и в числе больше двух цифр
-        return "ей";
+    let endingMinusOne = +(num.charAt(num.length - 2)); // определяю предпоследнюю цифру
+    if (ending == 0 || ending == 5 || ending == 6 || ending == 7 || ending == 8 || ending == 9 || endingMinusOne == 1) {
+        // 0, 5, 6, 7, 8, 9 или заканчивается на эти цифры, или предпоследняя цифра 1
+        return "рублей";
     } else if (ending == 2 || ending == 3 || ending == 4) { // 2, 3, 4 или заканчивается на 2, 3, 4
-        return "я";
-    } else { // число - 1
-        return "ь";
+        return "рубля";
+    } else { // число 1 или заканчивается на 1
+        return "рубль";
     }
 }
 
 let a = parseInt(prompt("Какую сумму вы хотите вложить?"));
 
-if (Math.sign(a) === 1) { // если указанное число положительное, зачисляю на счет
-    alert(`Ваша сумма ${a} рубл${deposit(a)} успешно зачислена!`);
+if (Math.sign(a) == 1) { // если указанное число положительное, зачисляю на счет
+    alert(`Ваша сумма ${a} ${deposit(a)} успешно зачислена!`);
 } else { // число отрицательное, запрещаю вывод денег со счета
-    alert(`Срок вашего вклада еще не истек, вы не можете вывести ${-a} рубл${deposit(a)}!`);
+    alert(`Срок вашего вклада еще не истек, вы не можете вывести ${-a} ${deposit(a)}!`);
 }
