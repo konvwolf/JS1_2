@@ -191,7 +191,7 @@ function deposit(num) {
 
     num = String(num) // перевожу пользовательский ввод в строку
     let ending = +(num.charAt(num.length - 1)); // определяю последнюю цифру в числе
-    let endingMinusOne = +(num.charAt(num.length - 2));
+    let endingMinusOne = +(num.charAt(num.length - 2)); // определяю предпоследнюю цифру на случай, когда в числе последние две цифры - 1
     if (ending == 0 || ending == 5 || ending == 6 || ending == 7 || ending == 8 || ending == 9 || ending == 1 && endingMinusOne == 1) {
         // 0, 5, 6, 7, 8, 9 или заканчивается на эти цифры и если 1 и в числе больше двух цифр
         return "ей";
