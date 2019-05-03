@@ -143,14 +143,17 @@ function mathOperation(arg1, arg2, operation) {
         case "сложить":
         case "+":
             return arg1 + arg2;
+
         case "вычитание":
         case "вычесть":
         case "-":
             return arg1 - arg2;
+
         case "умножение":
         case "умножить":
         case "*":
             return arg1 * arg2;
+            
         case "деление":
         case "разделить":
         case "делить":
@@ -199,8 +202,9 @@ function deposit(num) {
 }
 
 let a = parseInt(prompt("Какую сумму вы хотите вложить?"));
-
-if (Math.sign(a) == 1) { // если указанное число положительное, зачисляю на счет
+if (a == 0) {
+    alert(`${a} ${deposit(a)} нельзя положить на счет!`);
+} else if (Math.sign(a) == 1) { // если указанное число положительное, зачисляю на счет
     alert(`Ваша сумма ${a} ${deposit(a)} успешно зачислена!`);
 } else { // число отрицательное, запрещаю вывод денег со счета
     alert(`Срок вашего вклада еще не истек, вы не можете вывести ${-a} ${deposit(a)}!`);
